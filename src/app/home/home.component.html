@@ -1,0 +1,17 @@
+<div style="padding: 13px;">
+  <div *ngIf="products.length === 0"></div>
+
+  <div *ngFor="let product of products" style="margin-top:11px;">
+          <p>{{product.name}}</p>
+          <p>{{product.price}} $/ {{product.quantity}}
+          </p>
+
+          <p>
+              {{product.description}}
+          </p>
+          <img style="height:100%; width: 100%;" src="{{ product.imageUrl }}" />
+      </div>
+      <div>
+    <button > Buy product</button>
+  </div>
+  </div>
