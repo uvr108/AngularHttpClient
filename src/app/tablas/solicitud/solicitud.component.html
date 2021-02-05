@@ -1,1 +1,69 @@
-<p>solicitud works!</p>
+<div class="conteiner">
+  <br>
+<div  style=" background-color: rgb(245, 225, 204); margin-left: '35px'; margin-right: '35px';">
+<br>
+
+<div style="margin-left: '25px'">
+
+
+
+<table>
+    <tr>
+
+      <td class="solicitud">Solicitud</td>
+      <td class="ordencompra">Orden Compra</td>
+      <td class="factura">Factura</td>
+      <td class="comprobantecontable">Comp. Contable</td>
+      <td class="amarillo">Monto</td>
+    </tr>
+</table>
+
+
+
+
+<table  *ngIf = "1 > 0" class="c">
+  <tr  *ngFor="let pad of (solicitud$ | async); index as j">
+    <td class="solicitud">
+      <button type="button" class="btn btn-link"
+          style="width: 12em; text-align: left;"
+          data-toggle="modal" data-target="#Solicitud"
+          (click) = "activa_modal(true,pad['id'])"
+          >
+          <span *ngIf="val['id'] === pad['id']; else original">{{val['solicitante']}}</span>
+          <ng-template #original>{{pad['solicitante']}}</ng-template>
+      </button>
+    </td>
+
+  </tr>
+  <tr *ngIf="tipo === 'ingr'"><td class="solicitud">
+    <button class="btn btn-link">{{val['solicitante']}}</button>
+  </td></tr>
+  <tr><td class="solicitud"><button
+    class="btn btn-link" data-toggle="modal" data-target="#Solicitud"
+    (click) = "activa_modal(false)">+</button></td></tr>
+</table>
+
+<!--
+<table>
+  <tr>
+    <td class="amarillo">Total</td>
+    <td class="amarillo">Comprometido</td>
+    <td class="amarillo">Contabilizado</td>
+    <td class="amarillo">Ejecutado</td>
+    <td class="amarillo">Presupuestado</td>
+  </tr>
+  <tr>
+    <td class="amarillo">100</td>
+    <td class="amarillo">101</td>
+    <td class="amarillo">10</td>
+    <td class="amarillo">10000</td>
+    <td class="amarillo">1024</td>
+  </tr>
+
+</table>
+-->
+<br>
+</div>
+</div>
+<br>
+
