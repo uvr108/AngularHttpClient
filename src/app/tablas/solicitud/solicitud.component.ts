@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+// import { HttpClient } from '@angular/common/http';
+import { Component, ComponentFactoryResolver, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { from, Observable, Subject } from 'rxjs';
 import { delay, flatMap, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { CentroCosto } from 'src/app/interfaces/centrocosto';
@@ -17,6 +17,8 @@ import { TABLAS } from './../../config';
 })
 
 export class SolicitudComponent implements OnInit {
+
+  @Output() outputEvent : EventEmitter<any> = new EventEmitter<boolean>();
 
   @ViewChild('messagecontainer', { read: ViewContainerRef }) entry: ViewContainerRef;
 
@@ -44,7 +46,7 @@ export class SolicitudComponent implements OnInit {
 
   constructor(private dataService: CrudService,
               private resolver: ComponentFactoryResolver,
-              private http: HttpClient
+              // private http: HttpClient
     ) { }
 
   load() {
@@ -52,7 +54,9 @@ export class SolicitudComponent implements OnInit {
     .pipe(takeUntil(this.destroy$));
   }
 
-
+  enviar(val:boolean) {
+    this.outputEvent.emit(val);
+}
 
   ngOnInit() {
 
@@ -119,6 +123,7 @@ export class SolicitudComponent implements OnInit {
     this.componentRef.instance.outputEvent.subscribe((val:string) => {
       // this.tipo = val.substr(0,4);
       console.log('val -> ',val);
+      this.enviar(true);
       // this.val  = JSON.parse(val.substr(5));
 
       // this.ngOnInit();

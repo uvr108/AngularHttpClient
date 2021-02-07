@@ -11,7 +11,13 @@ import { SolicitudComponent } from './tablas/solicitud/solicitud.component';
 import { MyModalComponent } from './tablas/my-modal/my-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AdDirective } from './ad.directive';
+import { AdService } from './ad.service';
+
 import { FormsModule } from '@angular/forms';
+
+
+import { AdBannerComponent } from './ad-banner.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,8 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     SolicitudComponent,
     MyModalComponent,
+    AdBannerComponent,
+    AdDirective
 
   ],
   imports: [
@@ -32,7 +40,7 @@ import { FormsModule } from '@angular/forms';
 
   ],
 
-  providers: [],
+  providers: [AdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
