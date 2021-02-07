@@ -29,15 +29,15 @@
           data-toggle="modal" data-target="#Solicitud"
           (click) = "activa_modal(true,pad['id'])"
           >
-          <span *ngIf="val['id'] === pad['id']; else original">{{val['solicitante']}}</span>
-          <ng-template #original>{{pad['solicitante']}}</ng-template>
+          <!--span *ngIf="val['id'] === pad['id']; else original">{{val['solicitante']}}</span-->
+         {{pad['solicitante']}}
       </button>
     </td>
 
   </tr>
-  <tr *ngIf="tipo === 'ingr'"><td class="solicitud">
+  <!--tr *ngIf="tipo === 'ingr'"><td class="solicitud">
     <button class="btn btn-link">{{val['solicitante']}}</button>
-  </td></tr>
+  </td></tr-->
   <tr><td class="solicitud"><button
     class="btn btn-link" data-toggle="modal" data-target="#Solicitud"
     (click) = "activa_modal(false)">+</button></td></tr>

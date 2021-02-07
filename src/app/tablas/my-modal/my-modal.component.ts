@@ -94,7 +94,7 @@ export class MyModalComponent implements OnInit {
 
     console.log(this.id);
 
-    this.sol$ = this.crud.getSolicitud(this.id).pipe(tap(sol =>
+    this.sol$ = this.crud.getDataPk('Solicitud', this.id).pipe(tap(sol =>
       {
 
         console.log(sol);

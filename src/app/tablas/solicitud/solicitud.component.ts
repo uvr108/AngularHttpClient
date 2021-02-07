@@ -30,8 +30,8 @@ export class SolicitudComponent implements OnInit {
   solicitud$: Observable<Solicitud[]>;
   backref = '75';
 
-  array = [10, 20, 30];
-  result$ = from(this.array);
+  // array = [10, 20, 30];
+  // result$ = from(this.array);
 
   table = "Solicitud";
 
@@ -42,16 +42,14 @@ export class SolicitudComponent implements OnInit {
   componentRef : any;
   inverse: object = {};
 
-  val= {};
-
   constructor(private dataService: CrudService,
               private resolver: ComponentFactoryResolver,
               private http: HttpClient
     ) { }
 
   load() {
-    this.solicitud$ = this.dataService.getDataSolicitud(this.table, this.backref);
-    //.pipe(takeUntil(this.destroy$));
+    this.solicitud$ = this.dataService.getData(this.table, this.backref)
+    .pipe(takeUntil(this.destroy$));
   }
 
 
@@ -77,13 +75,15 @@ export class SolicitudComponent implements OnInit {
 
     Object.entries(this.back).forEach(([k, v]) => {
 
+
       if (k === 'CentroCosto') {
-        this.centrocosto$ = this.dataService.getDataCentroCosto(k);
+        this.centrocosto$ = this.dataService.getData(k);
       }
       else if (k == 'EstadoSolicitud') {
-        this.estadosolicitud$ = this.dataService.getDataEstadoSolicitud(k);
+        this.estadosolicitud$ = this.dataService.getData(k);
       }
-      else if (k == 'SubItem') {}
+
+
     } );
 
   }
@@ -117,11 +117,11 @@ export class SolicitudComponent implements OnInit {
     this.componentRef.instance.solicitud$ = this.solicitud$;
     this.componentRef.instance.id = id;
     this.componentRef.instance.outputEvent.subscribe((val:string) => {
-      this.tipo = val.substr(0,4);
-      // console.log('typo -> ',val.substr(0,4));
-      this.val  = JSON.parse(val.substr(5));
+      // this.tipo = val.substr(0,4);
+      console.log('val -> ',val);
+      // this.val  = JSON.parse(val.substr(5));
 
-
+      // this.ngOnInit();
 
 
       // result.subscribe(x => console.log(x));
