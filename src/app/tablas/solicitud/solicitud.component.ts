@@ -8,7 +8,6 @@ import { Solicitud } from 'src/app/interfaces/solicitud';
 import { CrudService } from 'src/app/shared/crud.service';
 import { MyModalComponent } from '../my-modal/my-modal.component';
 import { TABLAS } from './../../config';
-import { AdBannerComponent } from './../ad-banner.component';
 
 
 @Component({

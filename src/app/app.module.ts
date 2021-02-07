@@ -10,9 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SolicitudComponent } from './tablas/solicitud/solicitud.component';
 import { MyModalComponent } from './tablas/my-modal/my-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdBannerComponent }  from './tablas/ad-banner.component';
 import { AdDirective} from './tablas/ad-directive';
-import { AdService} from './tablas/ad.service';
 
 import { FormsModule } from '@angular/forms';
 
@@ -22,7 +20,6 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     SolicitudComponent,
     MyModalComponent,
-    AdBannerComponent,
     AdDirective,
 
 
@@ -38,7 +35,7 @@ import { FormsModule } from '@angular/forms';
 
   ],
 
-  providers: [AdService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
