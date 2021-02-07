@@ -30,7 +30,7 @@
           (click) = "activa_modal(true,pad['id'])"
           >
           <span *ngIf="val['id'] === pad['id']; else original">{{val['solicitante']}}</span>
-          <ng-template #original>xxx | {{pad['solicitante']}}</ng-template>
+          <ng-template #original>{{pad['solicitante']}}</ng-template>
       </button>
     </td>
 

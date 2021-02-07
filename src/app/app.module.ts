@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SolicitudComponent } from './tablas/solicitud/solicitud.component';
 import { MyModalComponent } from './tablas/my-modal/my-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdDirective} from './tablas/ad-directive';
 
 import { FormsModule } from '@angular/forms';
 
@@ -20,8 +19,6 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     SolicitudComponent,
     MyModalComponent,
-    AdDirective,
-
 
   ],
   imports: [
